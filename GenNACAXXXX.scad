@@ -4,9 +4,8 @@
 //   Generat a NACA 4 digits airfoil                                                    //
 //                                                                                      //
 //   by Alberto Solorzano Kraemer, 2020, betobetok@gmail.com                            //
-//   https://www.thingiverse.com/thing:4314863                                              //    
-//                                                                                      //
-//   Additional fixes and improvements by Revar Desmera, 2017-2019, revarbat@gmail.com  //
+//   https://www.thingiverse.com/thing:4314863                                          //    
+//   https://github.com/betobetok/OpenScadNACAXXXX/edit/master/GenNACAXXXX.scad         //
 //                                                                                      //
 //   This file is public domain.  Use it for any purpose, including commercial          //
 //   applications.  Attribution would be nice, but is not required.  There is           //
@@ -48,8 +47,8 @@
     Modulo     
     GenNACA()                                       : Genera un perfil NACA0012 con cuerda 10 y envergadura 0.1
     GenNACA(name="NACAXXXX")                        : Genera un perfil deacuerdo al nombre "name" con cuerda 10 y envergadura 0.1
-    GenNACA(name="NACAXXXX",Cuerda=X)               : Genera un perfil deacuerdo al nombre "name" con cuerda X y envergadura 0.1
-    GenNACA(name="NACAXXXX",Cuerda=X,Extrucion=Y)   : Genera un perfil deacuerdo al nombre "name" con cuerda X y envergadura Y
+    GenNACA(name="NACAXXXX",cuerda=X)               : Genera un perfil deacuerdo al nombre "name" con cuerda X y envergadura 0.1
+    GenNACA(name="NACAXXXX",cuerda=X,extrucion=Y)   : Genera un perfil deacuerdo al nombre "name" con cuerda X y envergadura Y
     
     Funcion
     NACA()                          : Regresa las coordenadas del perfil NACA0012 en un arreglo [[0,0][x,-y]....[1,-y][0.9,y]....[x,y][0,0]]
@@ -57,11 +56,11 @@
 */
 
 //EJEMPLOS:
-//GenNACA(name="NACA4412", Cuerda=30, Extrucion=50);
+//GenNACA(name="NACA3314", cuerda=60, extrucion=50);
 //echo(NACA(name="NACA3314"));
 
-module GenNACA(name="NACA0012", Cuerda=10, Extrucion=0.1){
-   linear_extrude(height = Extrucion, center = true, convexity = 20) polygon(points=Cuerda*NACA(name));
+module GenNACA(name="NACA0012", cuerda=10, extrucion=0.1){
+   linear_extrude(height = extrucion, center = true, convexity = 20) polygon(points=cuerda*NACA(name));
 }
 
 
