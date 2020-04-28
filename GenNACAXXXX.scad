@@ -30,29 +30,32 @@
 	Author: Alberto Solorzano Kraemer ( betobetok@gmail.com )
 	License: GPL
     
-    Programa para generar perfiles NACA de la serie de 4 digitos tipo NACA(X1)(X2)(X3)(X4) donde:
-    
-    (X1) = Curvatura maxima en porcentaje de la cuerda 
-    (X2) = Posicion de la curvatura maxima en decenas de porcentaje de la cuerda 
-    (X3 y X4) = Espesor maximo en porcentaje de la cuerda 
-    
-    Ejemplo; NACA2412
-    12% de espesor
-    2% de curvatura ubicada en el 40% de la cuerda
-    
-    Para usar el software se puede llamar el modulo "GenNACA" o utilizar la funcion NACA
-   
-    sintaxis:
-    
-    Modulo     
-    GenNACA()                                       : Genera un perfil NACA0012 con cuerda 10 y envergadura 0.1
-    GenNACA(name="NACAXXXX")                        : Genera un perfil deacuerdo al nombre "name" con cuerda 10 y envergadura 0.1
-    GenNACA(name="NACAXXXX",cuerda=X)               : Genera un perfil deacuerdo al nombre "name" con cuerda X y envergadura 0.1
-    GenNACA(name="NACAXXXX",cuerda=X,extrucion=Y)   : Genera un perfil deacuerdo al nombre "name" con cuerda X y envergadura Y
-    
-    Funcion
-    NACA()                          : Regresa las coordenadas del perfil NACA0012 en un arreglo [[0,0][x,-y]....[1,-y][0.9,y]....[x,y][0,0]]
-    NACA(name="NACAXXXX")           : Regresa las coordenadas del perfil name en un arreglo [[0,0][x,-y]....[1,-y][0.9,y]....[x,y][0,0]]
+    This file is public domain. Use it for any purpose, including commercial
+    applications. Attribution would be nice but is not required. There is
+    no warranty of any kind, including its correctness, usefulness, or safety.
+
+    You can use this file to simply generate a NACA 4 digits airfoil, you can generate an extruded airfoil (win section) or an array of points that you can use in Openscad or another software
+
+    USE
+
+syntax:
+
+Module  to generate an extruded airfoil   
+GenNACA() : Generate an airfoil NACA0012 with Chord = 10 and Wingspan = 0.1
+GenNACA(name="NACAXXXX") : Generate an airfoil NACAXXXX with Chord = 10 and Wingspan = 0.1
+GenNACA(name="NACAXXXX",Cuerda=X) : Generate an airfoil NACAXXXX with Chord = X and Wingspan = 0.1
+GenNACA(name="NACAXXXX",Cuerda=X,Extrucion=Y) : Generate an airfoil NACA0012 with Chord = X and Wingspan = Y
+
+Function to generate an array with the airfoil points
+NACA() : return the cordinates of airfoil NACA0012 in the array [[0,0][x,-y]....[1,-y][0.9,y]....[x,y][0,0]]
+NACA(name="NACAXXXX") : return the cordinates of airfoil NACAXXXX in the array [[0,0][x,-y]....[1,-y][0.9,y]....[x,y][0,0]]
+
+Enjoy
+
+NOTE: The STL files are just examples, you can make your ouns.
+
+If you found this useful, please donate what you think it is worth to my PayPal.me. Help cover the time of design.
+Thanks, Enjoy!
 */
 
 //EJEMPLOS:
